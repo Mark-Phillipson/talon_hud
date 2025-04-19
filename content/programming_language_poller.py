@@ -46,7 +46,7 @@ class ProgrammingLanguagePoller(Poller):
                 status_icon = self.content.create_status_icon("programming_toggle", icon, text, language + " detected", callback)
                 self.content.publish_event("status_icons", status_icon.topic, "replace", status_icon)
             else:
-                status_icon = self.content.create_status_icon("programming_toggle", "", "", "No programming language detected", False)
+                status_icon = self.content.create_status_icon("programming_toggle", "", self.current_language, "No programming language detected", False)
                 self.content.publish_event("status_icons", status_icon.topic, "replace", status_icon)
 
 

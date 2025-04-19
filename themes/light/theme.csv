@@ -8,7 +8,7 @@ top_stroke_colour,#DDDDDD
 down_stroke_colour,#999999
 parrot_switch_mode_colour,#FFE500
 sleep_mode_colour,#777777
-command_mode_colour,#FFFFFF
+command_mode_colour,#7F4C93
 dictation_mode_colour,#FFFFFF
 mixed_mode_colour,#FFFFFF
 button_colour,#FFFFFF

@@ -1,4 +1,4 @@
-from talon import skia, cron, ctrl, scope, canvas, ui
+from talon import skia, cron, ctrl, scope, canvas, settings, ui
 from talon.types import Point2d
 from abc import ABCMeta
 import numpy
@@ -529,7 +529,9 @@ class BaseWidget(metaclass=ABCMeta):
         canvas_options = {
         #    "backend": "software"
         }
-        return canvas.Canvas(x, y, width, height, **canvas_options)
+        c = canvas.Canvas(x, y, width, height, **canvas_options)
+        c.allows_capture = settings.get("user.talon_hud_allows_capture")
+        return c
 
     def draw_focus_name(self, canvas):
         canvas.paint.style = canvas.paint.Style.FILL

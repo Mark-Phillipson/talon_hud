@@ -6,9 +6,9 @@ parrot_blink_colour,#FFE500
 dictation_blink_colour,#000000
 top_stroke_colour,#444444
 down_stroke_colour,#222222
-sleep_mode_colour,#2071A3
+sleep_mode_colour,#FF0000
 parrot_switch_mode_colour,#FFE500
-command_mode_colour,#FF0000
+command_mode_colour,#03045e
 dictation_mode_colour,00FF00
 button_colour,#777777
 button_hover_colour,#999999

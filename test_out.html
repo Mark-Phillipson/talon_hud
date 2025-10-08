@@ -1,0 +1,110 @@
+<p></p>
+<h1>Talon HUD Voice Command Cheatsheet</h1>
+<p></p>
+<p>A quick reference for all voice commands and available values in the Talon HUD repository. Optimized for wide screens.</p>
+<p></p>
+<p>---</p>
+<p></p>
+<h2>General HUD Commands</h2>
+<p></p>
+<table>
+<thead><tr><th>Command</th><th>Description</th><th>Command</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>head up show / open</td><td>Show the HUD</td><td>head up hide / close</td><td>Hide the HUD</td></tr>
+<tr><td>head up theme {theme}</td><td>Switch theme</td><td>head up drop / stop / confirm</td><td>Confirm/stop setup</td></tr>
+<tr><td>head up cancel</td><td>Cancel setup mode</td></tr>
+</tbody>
+</table>
+<p></p>
+<p></p>
+<h2>Widget Control (replace <code>{widget}</code> with a widget name)</h2>
+<p></p>
+<p><strong>Available widgets:</strong></p>
+<p></p>
+<table>
+<thead><tr><th>ability_bar</th><th>choices</th><th>context_menu</th><th>cursor_tracker</th><th>documentation</th></tr></thead>
+<tbody>
+<tr><td>event_log</td><td>screen_overlay</td><td>status_bar</td><td>text_panel</td><td>walkthrough</td></tr>
+</tbody>
+</table>
+<p></p>
+<table>
+<thead><tr><th>Command</th><th>Description</th><th>Command</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>head up show/open {widget}</td><td>Show a widget</td><td>head up hide/close {widget}</td><td>Hide a widget</td></tr>
+<tr><td>head up resize {widget}</td><td>Resize widget</td><td>head up expand {widget}</td><td>Expand widget</td></tr>
+<tr><td>head up text scale {widget}</td><td>Change text size</td><td>head up drag {widget}</td><td>Drag widget</td></tr>
+<tr><td>head up basic {widget}</td><td>Basic animation</td><td>head up fancy {widget}</td><td>Fancy animation</td></tr>
+<tr><td>head up hide {widget} on sleep</td><td>Hide on sleep</td><td>head up show {widget} on sleep</td><td>Show on sleep</td></tr>
+<tr><td>head up align {widget} right/left/center/top/bottom</td><td>Align widget</td></tr>
+</tbody>
+</table>
+<p></p>
+<h2>Widget Content</h2>
+<p></p>
+<table>
+<thead><tr><th>Command</th><th>Description</th><th>Command</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>{widget} show/open</td><td>Show widget</td><td>{widget} hide/close</td><td>Hide widget</td></tr>
+<tr><td>{widget} minimize</td><td>Minimize widget</td><td>{widget} maximize</td><td>Maximize widget</td></tr>
+<tr><td>{widget} next</td><td>Next page/content</td><td>{widget} back/previous</td><td>Previous page/content</td></tr>
+<tr><td>{widget} options</td><td>Show widget options</td></tr>
+</tbody>
+</table>
+<p></p>
+<h2>Focus Commands</h2>
+<p></p>
+<table>
+<thead><tr><th>Command</th><th>Description</th><th>Command</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>head up focus / focus head up</td><td>Focus the HUD</td><td>head up blur</td><td>Remove focus</td></tr>
+<tr><td>head up enable auto focus</td><td>Enable auto focus</td><td>head up disable auto focus</td><td>Disable auto focus</td></tr>
+</tbody>
+</table>
+<p></p>
+<h2>Development/Debug</h2>
+<p></p>
+<table>
+<thead><tr><th>Command</th><th>Description</th><th>Command</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>head up development start</td><td>Start dev mode</td><td>head up development stop</td><td>Stop dev mode</td></tr>
+</tbody>
+</table>
+<p></p>
+<p>---</p>
+<p></p>
+<p></p>
+<h2>Lists and Captures</h2>
+<p></p>
+<h3>Themes (<code>{theme}</code>)</h3>
+<p></p>
+<table>
+<thead><tr><th>dark</th><th>light</th><th>(custom themes)</th></tr></thead>
+</table>
+<p></p>
+<h3>Numerical Choices (for options, e.g. "option one", "option twenty three")</h3>
+<p></p>
+<table>
+<thead><tr><th>one</th><th>two</th><th>three</th><th>...</th><th>one hundred</th></tr></thead>
+</table>
+<p></p>
+<p>---</p>
+<p></p>
+<p><strong>Tip:</strong></p>
+<ul><li>You can use the command **toolkit lists** to see all available lists in your Talon environment.</li>
+<li>For more advanced or custom commands, check your &lt;code&gt;.talon&lt;/code&gt; files or the documentation in the repo.</li></ul>
+<p></p>
+<h3>Themes (<code>{theme}</code>)</h3>
+<ul><li>dark</li>
+<li>light</li>
+<li>(any custom themes you have added)</li></ul>
+<p></p>
+<h3>Numerical Choices (for options, e.g. "option one", "option twenty three")</h3>
+<ul><li>one, two, three, ... up to one hundred</li></ul>
+<p></p>
+<p>---</p>
+<p></p>
+<p><strong>Tip:</strong></p>
+<ul><li>You can use the command **toolkit lists** to see all available lists in your Talon environment.</li>
+<li>For more advanced or custom commands, check your &lt;code&gt;.talon&lt;/code&gt; files or the documentation in the repo.</li></ul>
+<p></p>

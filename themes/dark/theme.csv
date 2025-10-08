@@ -8,9 +8,10 @@ top_stroke_colour,#444444
 down_stroke_colour,#222222
 sleep_mode_colour,#FF0000
 parrot_switch_mode_colour,#FFE500
-command_mode_colour,#03045e
-dictation_mode_colour,00FF00
-button_colour,#777777
+command_mode_colour,#ADD8E6
+dictation_mode_colour,FFA500
+mixed_mode_colour,#00FF00
+button_colour,#ADD8E6
 button_hover_colour,#999999
 close_icon_accent_colour,#AA0000
 close_icon_colour,#880000
@@ -28,11 +29,11 @@ event_log_ttl_duration_seconds,9
 event_log_between_margin,10
 event_log_horizontal_padding,8
 event_log_vertical_padding,4
-ability_activation_colour,#000000AA
+ability_activation_colour,#0000AA
 text_box_background,#333333
 text_box_line,#888888
-icon_colour,#000000FF
-button_background,#555555
+icon_colour,#0000FF
+button_background,#000000 head hoplite
 button_hover_background,#777777
 button_text_colour,#BBBBBB
 button_hover_text_colour,#BBBBBB
@@ -46,9 +47,9 @@ spoken_voice_command_background_colour,#2A6D37
 voice_command_background_colour,#DDDDDD
 spoken_voice_command_text_colour,#BBBBBB
 voice_command_text_colour,#535353
-screen_overlay_text_colour,#DDDDDD00
-screen_overlay_background_colour,#33333344
-screen_overlay_active_text_colour,#000000FF
+screen_overlay_text_colour,#DDDD00
+screen_overlay_background_colour,#333344
+screen_overlay_active_text_colour,#0000FF
 screen_overlay_active_background_colour,#333333
 screen_overlay_vertical_padding,4
 screen_overlay_horizontal_padding,4

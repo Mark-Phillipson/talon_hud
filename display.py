@@ -162,6 +162,10 @@ class HeadUpDisplay:
                 if widget.preferences.enabled and not widget.enabled:
                     widget.enable()
             self.synchronize_pollers()
+
+            # When the HUD was disabled (e.g. via inactive visibility/fullscreen), widgets miss updates.
+            # Push a content dump so widget-local state (especially variables like current mode) is in sync.
+            self.distribute_content()
             
             ui.register("screen_change", self.reload_preferences)
             settings.register("user.talon_hud_environment", self.hud_environment_change)

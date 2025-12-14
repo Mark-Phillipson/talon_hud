@@ -34,12 +34,17 @@ class HeadUpStatusBar(BaseWidget):
     
     def refresh(self, new_content):
         if self.animation_tick == 0 and "event" in new_content and new_content["event"].topic_type == "variable" and new_content["event"].topic == "mode":
-            if new_content["event"].content == "command":
+            new_mode = new_content["event"].content
+            if new_mode == "command":
                 self.blink_colour = self.command_blink_colour
-            elif new_content["event"].content == "dictation":
+            elif new_mode == "dictation":
                 self.blink_colour = self.dictation_blink_colour
-            elif new_content["event"].content == "sleep":
+            elif new_mode == "sleep":
                 self.blink_colour = self.sleep_blink_colour
+            else:
+                # Prevent inheriting a previous mode's blink colour (e.g. sleep red) for modes like "mixed".
+                # Fall back to the mode colour itself.
+                self.blink_colour = self.theme.get_colour_as_ints(new_mode + "_mode_colour")
             
             # Calculate the colour difference between the blink and the next state
             # To make it easier to calculate during draw
@@ -153,7 +158,12 @@ class HeadUpStatusBar(BaseWidget):
         green_hex = "0" + format(green, "x") if green <= 15 else format(green, "x")
         blue_hex = "0" + format(blue, "x") if blue <= 15 else format(blue, "x")
         
-        mode = self.content.get_variable("mode", "command")
+        # Prefer live mode determination to avoid stale widget-local variable state
+        # after hide/show or other event flow hiccups.
+        try:
+            mode = actions.user.hud_determine_mode()
+        except Exception:
+            mode = self.content.get_variable("mode", "command")
         
         # Draw the background based on the state
         accent_colour = red_hex + green_hex + blue_hex
@@ -289,6 +299,9 @@ class HeadUpStatusBar(BaseWidget):
             self.blink_colour = self.dictation_blink_colour
         elif mode == "sleep":
             self.blink_colour = self.sleep_blink_colour
+        else:
+            # Keep accent/blink colours consistent for modes like "mixed".
+            self.blink_colour = self.theme.get_colour_as_ints(mode + "_mode_colour")
 
         self.blink_difference = [
             self.intro_animation_end_colour[0] - self.intro_animation_start_colour[0],

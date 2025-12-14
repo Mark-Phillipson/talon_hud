@@ -78,9 +78,14 @@ class HudPartialContent:
             self.remove_topic(event.topic_type, event.topic)
         elif event.operation == "dump":
             for topic_type in event.content["topic_types"]:
+                # Variables are global widget state (e.g. current mode) and must be restored on dumps
+                # even if the widget never received a prior variable event.
                 if topic_type not in self.topic_types:
-                    continue
+                    if topic_type == "variable":
+                        self.topic_types[topic_type] = {}
+                    else:
+                        continue
                 for topic in event.content["topic_types"][topic_type]:
-                    if topic in self.persisted_topics:
+                    if topic_type == "variable" or topic in self.persisted_topics:
                         self.set_topic(topic_type, topic, event.content["topic_types"][topic_type][topic])
         # Other types of content events need manual changing ( patch and append for example )

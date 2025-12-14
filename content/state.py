@@ -190,14 +190,18 @@ class HeadUpDisplayContent(Dispatch):
         self.revise_log()
         
     def save_events(self):
+        # Start buffering new events; reset any previously buffered events.
         self.save_up_events = True
+        self.saved_events = []
 
     def flush_events(self):
         self.save_up_events = False
         if self.saved_events is None or len(self.saved_events) == 0:
             return
         
-        for event in self.saved_events:
+        buffered_events = self.saved_events
+        self.saved_events = []
+        for event in buffered_events:
             self.dispatch(event["type"], event["event"])
         
     # Get a full content dump to be used in refreshing widgets after a code update

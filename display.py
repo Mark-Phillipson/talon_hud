@@ -133,7 +133,8 @@ class HeadUpDisplay:
     def enable(self, persisted=False):
         if not self.enabled:
             self.enabled = True
-            self.display_state.register("broadcast_update", self.broadcast_update)
+            if self.display_state:
+                self.display_state.register("broadcast_update", self.broadcast_update)
 
             # Only reset the talon HUD environment after a user action
             # And only set the visible tag
@@ -197,7 +198,8 @@ class HeadUpDisplay:
             self.event_dispatch.unregister("detect_autofocus", self.update_focus_grace_period)            
             
             self.disable_poller_job = cron.interval("30ms", self.disable_poller_check)
-            self.display_state.unregister("broadcast_update", self.broadcast_update)
+            if self.display_state:
+                self.display_state.unregister("broadcast_update", self.broadcast_update)
             ui.unregister("screen_change", self.reload_preferences)
             settings.unregister("user.talon_hud_environment", self.hud_environment_change)            
             self.determine_active_setup_mouse()
@@ -390,10 +392,10 @@ class HeadUpDisplay:
     def connect_internal(self, type: str, data: Any):
         """Connect classes after they are loaded in to make sure they can be reloaded after changes have been made"""
         if type == "HeadUpDisplayContent":
-            if self.enabled:
+            if self.enabled and self.display_state:
                 self.display_state.unregister("broadcast_update", self.broadcast_update)
             self.display_state = data
-            if self.enabled:
+            if self.enabled and self.display_state:
                 self.display_state.register("broadcast_update", self.broadcast_update)
                 
             # Reconnect the content object to the pollers

@@ -315,8 +315,27 @@ class HeadUpScreenOverlay(BaseWidget):
             return ui.Rect(0, 0, 0, 0)
     
     def compare_regions(self, region_a, region_b):
-        return region_a.topic == region_b.topic and region_a.colour == region_b.colour and (
-            region_a.icon == region_b.icon or region_a.title == region_b.title )
+        rect_a = region_a.rect
+        rect_b = region_b.rect
+        same_rect = (
+            (rect_a is None and rect_b is None)
+            or (
+                rect_a is not None
+                and rect_b is not None
+                and rect_a.x == rect_b.x
+                and rect_a.y == rect_b.y
+                and rect_a.width == rect_b.width
+                and rect_a.height == rect_b.height
+            )
+        )
+
+        return (
+            region_a.topic == region_b.topic
+            and region_a.colour == region_b.colour
+            and region_a.icon == region_b.icon
+            and region_a.title == region_b.title
+            and same_rect
+        )
     
     def activate_mouse_tracking(self):
         has_active_region = len([x for x in self.regions if x.hover_visibility]) > 0
